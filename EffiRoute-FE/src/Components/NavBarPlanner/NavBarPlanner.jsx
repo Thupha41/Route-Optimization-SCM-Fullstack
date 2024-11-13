@@ -7,7 +7,7 @@ import { RiMenu3Line } from "react-icons/ri";
 import { IoMdClose } from "react-icons/io";
 import Logo from "../../assets/Home/Logo/Logo.png";
 import noti from "../../assets/Planner/noti.png";
-
+import NotificationDropdown from "../NotificationDropdown/NotificationDropdown";
 function NavBarPlanner() {
   const user = useSelector((state) => state.account.userInfo);
   const dispatch = useDispatch();
@@ -94,7 +94,7 @@ function NavBarPlanner() {
         {/* Desktop User Actions */}
         <div className="hidden md:flex items-center md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
           {/* Notification Button for Desktop */}
-          <button
+          {/* <button
             type="button"
             className="relative mr-5 inline-flex items-center p-3 text-sm font-medium text-center text-white bg-primary rounded-lg hover:bg-orange-600 focus:ring-2 focus:outline-none focus:ring-orange-500"
           >
@@ -107,7 +107,8 @@ function NavBarPlanner() {
             <div className="absolute inline-flex items-center justify-center w-6 h-6 text-xs font-bold text-white bg-secondary border-2 border-white rounded-full -top-2 -end-2">
               5
             </div>
-          </button>
+          </button> */}
+          <NotificationDropdown />
 
           {/* User Profile Button */}
           {user && (

@@ -7,7 +7,7 @@ import { RiMenu3Line } from "react-icons/ri";
 import { IoMdClose } from "react-icons/io";
 import Logo from "../../assets/Home/Logo/Logo.png";
 import noti from "../../assets/Planner/noti.png";
-
+import NotificationDropdown from "../NotificationDropdown/NotificationDropdown";
 function NavBarManager() {
   const user = useSelector((state) => state.account.userInfo);
   const dispatch = useDispatch();
@@ -38,7 +38,7 @@ function NavBarManager() {
 
         {/* Mobile Right Section */}
         <div className="flex items-center space-x-2 md:hidden">
-          {/* Notification Button for Mobile */}
+          {/* Notification Button*/}
           <button
             type="button"
             className="relative inline-flex items-center p-2 text-sm font-medium text-center text-white bg-primary rounded-lg hover:bg-orange-600 focus:ring-2 focus:outline-none focus:ring-orange-500"
@@ -93,8 +93,9 @@ function NavBarManager() {
 
         {/* Desktop User Actions */}
         <div className="hidden md:flex items-center md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
+          <NotificationDropdown />
           {/* Notification Button for Desktop */}
-          <button
+          {/* <button
             type="button"
             className="relative mr-5 inline-flex items-center p-3 text-sm font-medium text-center text-white bg-primary rounded-lg hover:bg-orange-600 focus:ring-2 focus:outline-none focus:ring-orange-500"
           >
@@ -107,7 +108,7 @@ function NavBarManager() {
             <div className="absolute inline-flex items-center justify-center w-6 h-6 text-xs font-bold text-white bg-secondary border-2 border-white rounded-full -top-2 -end-2">
               5
             </div>
-          </button>
+          </button> */}
 
           {/* User Profile Button */}
           {user && (

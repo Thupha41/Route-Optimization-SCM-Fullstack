@@ -3,6 +3,8 @@ import { HashLoader } from "react-spinners";
 import { useSelector } from "react-redux";
 import { useRef } from "react";
 import AppContent from "./Components/Layout/AppContent";
+import { SocketProvider } from "./contexts/SocketContext";
+import { NotificationProvider } from "./contexts/NotificationContext";
 
 function App() {
   const isLoading = useSelector((state) => state.account.isLoading);
@@ -16,17 +18,19 @@ function App() {
   };
 
   return (
-    <>
-      <Router>
-        {isLoading ? (
-          <div style={style}>
-            <HashLoader color={"#fd7e14"} loading={true} size={150} />
-          </div>
-        ) : (
-          <AppContent firstRenderRef={firstRenderRef} />
-        )}
-      </Router>
-    </>
+    <SocketProvider>
+      <NotificationProvider>
+        <Router>
+          {isLoading ? (
+            <div style={style}>
+              <HashLoader color={"#fd7e14"} loading={true} size={150} />
+            </div>
+          ) : (
+            <AppContent firstRenderRef={firstRenderRef} />
+          )}
+        </Router>
+      </NotificationProvider>
+    </SocketProvider>
   );
 }
 
